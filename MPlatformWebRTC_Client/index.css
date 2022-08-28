@@ -1,0 +1,30 @@
+#controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+#flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+
+#centered {
+   /*make horizontally centered*/
+    
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}

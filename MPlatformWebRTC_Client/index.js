@@ -1,52 +1,198 @@
 const videoContainer = document.getElementById("videoContainer");
 
-function connect() {
-    var peerId = "Room410";
-    var webrtc = new SimpleWebRTC({
-        target: "Streamer210",
-        url: "http://rtc.medialooks.com:8889",
-        iceServers: [
-            { urls: "stun:stun.l.google.com:19302" },
-            {
-                username: "test_user",
-                credential: "medialooks",
-                urls: ["turn:67.220.183.67:3478"],
-            },
-        ],
-        localVideoEl: "",
-        remoteVideosEl: "",
-        autoRequestMedia: false,
-        debug: true,
-        detectSpeakingEvents: true,
-        autoAdjustMic: false,
-    });
+var WebRTCMaster = new SimpleWebRTC({
+    target: "Streamer0",
+    url: "http://rtc.medialooks.com:8889",
+    iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        {
+            username: "test_user",
+            credential: "medialooks",
+            urls: ["turn:67.220.183.67:3478"],
+        },
+    ],
+    localVideoEl: "",
+    remoteVideosEl: "",
+    autoRequestMedia: false,
+    debug: true,
+    muted : true,
+    detectSpeakingEvents: true,
+    autoAdjustMic: false,
+});
 
-    webrtc.joinRoom("Room410");
-    webrtc.on("videoAdded", function (video, peer) {
+var WebRTCPreview1 = new SimpleWebRTC({
+    target: "Streamer1",
+    url: "http://rtc.medialooks.com:8889",
+    iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        {
+            username: "test_user",
+            credential: "medialooks",
+            urls: ["turn:67.220.183.67:3478"],
+        },
+    ],
+    localVideoEl: "",
+    remoteVideosEl: "",
+    autoRequestMedia: false,
+    debug: true,
+    mute : true,
+    detectSpeakingEvents: true,
+    autoAdjustMic: false,
+});
+
+var WebRTCPreview2 = new SimpleWebRTC({
+    target: "Streamer2",
+    url: "http://rtc.medialooks.com:8889",
+    iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        {
+            username: "test_user",
+            credential: "medialooks",
+            urls: ["turn:67.220.183.67:3478"],
+        },
+    ],
+    localVideoEl: "",
+    remoteVideosEl: "",
+    autoRequestMedia: false,
+    debug: true,
+    mute : true,
+    detectSpeakingEvents: true,
+    autoAdjustMic: false,
+});
+
+var WebRTCPreview3 = new SimpleWebRTC({
+    target: "Streamer3",
+    url: "http://rtc.medialooks.com:8889",
+    iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        {
+            username: "test_user",
+            credential: "medialooks",
+            urls: ["turn:67.220.183.67:3478"],
+        },
+    ],
+    localVideoEl: "",
+    remoteVideosEl: "",
+    autoRequestMedia: false,
+    debug: true,
+    mute : true,
+    detectSpeakingEvents: true,
+    autoAdjustMic: false,
+});
+
+var WebRTCPreview4 = new SimpleWebRTC({
+    target: "Streamer4",
+    url: "http://rtc.medialooks.com:8889",
+    iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        {
+            username: "test_user",
+            credential: "medialooks",
+            urls: ["turn:67.220.183.67:3478"],
+        },
+    ],
+    localVideoEl: "",
+    remoteVideosEl: "",
+    autoRequestMedia: false,
+    debug: true,
+    mute : true,
+    detectSpeakingEvents: true,
+    autoAdjustMic: false,
+});
+
+
+function connect() {
+    
+    WebRTCMaster.joinRoom("Room410");
+    WebRTCMaster.on("videoAdded", function (video, peer) {
         console.log("video added", peer);
-        var container = document.getElementById("videoContainer");
+        var container = document.getElementById("videoContainerMaster");
 
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
         video.setAttribute('controls', '');
-        video.setAttribute('width', '100%');
-        video.setAttribute('height', '100%');
+        video.setAttribute("width", "720px");
 
         videoEl = video;
         container.innerHTML = "";
         container.appendChild(video);
-        webrtc.stopLocalVideo();
+        WebRTCMaster.stopLocalVideo();
+        video.play();
+    });  
+
+    WebRTCPreview1.joinRoom("Room410");
+    WebRTCPreview1.on("videoAdded", function (video, peer) {
+        console.log("video added", peer);
+        var container2 = document.getElementById("videoContainer");
+
+        video.setAttribute('loop', '');
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('controls', '');
+        video.setAttribute("width", "480px");
+
+        videoEl = video;
+        container2.innerHTML = "";
+        container2.appendChild(video);
+        WebRTCPreview1.stopLocalVideo();
         video.play();
     });
 
-    webrtc.on("videoRemoved", function (video, peer) {
-        console.log("video removed ", peer);
-        var container = document.getElementById("videoContainer");
-        if ( peer.id == peerId || peer.strongId == peerId || peer.nickName == peerId ) {
-            videoEl = null;
-            container.innerHTML = "";
-            var videoStub = document.createElement("video");
-            container.appendChild(videoStub);
-        }
+    WebRTCPreview2.joinRoom("Room410");
+    WebRTCPreview2.on("videoAdded", function (video, peer) {
+        console.log("video added", peer);
+        var container3 = document.getElementById("videoContainer1");
+
+        video.setAttribute('loop', '');
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('controls', '');
+        video.setAttribute("width", "480px");
+
+        videoEl = video;
+        container3.innerHTML = "";
+        container3.appendChild(video);
+        WebRTCPreview2.stopLocalVideo();
+        video.play();
     });
+
+
+    WebRTCPreview3.joinRoom("Room410");
+    WebRTCPreview3.on("videoAdded", function (video, peer) {
+        console.log("video added", peer);
+        var container4 = document.getElementById("videoContainer2");
+
+        video.setAttribute('loop', '');
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('controls', '');
+        video.setAttribute("width", "480px");
+
+        videoEl = video;
+        container4.innerHTML = "";
+        container4.appendChild(video);
+        WebRTCPreview3.stopLocalVideo();
+        video.play();
+    });
+
+    
+
+    WebRTCPreview4.joinRoom("Room410");
+    WebRTCPreview4.on("videoAdded", function (video, peer) {
+        console.log("video added", peer);
+        var containerm = document.getElementById("videoContainer3");
+
+        video.setAttribute('loop', '');
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('controls', '');
+        video.setAttribute("width", "480px");
+
+        videoEl = video;
+        containerm.innerHTML = "";
+        containerm.appendChild(video);
+        WebRTCPreview4.stopLocalVideo();
+        video.play();
+    });
+
+}
+
+function switchsrc(srcID){
+    WebRTCMaster.sendDataChannelMessageToAll(srcID);
 }

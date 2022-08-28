@@ -5,12 +5,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Document</title>
 </head>
 
 <body>
+    <h1 class="title">Source Streams:</h1>
     <button onclick="connect()">Connect</button>
-    <div id="videoContainer"></div>
+    <div id="controls">
+        <button onclick="switchsrc('0')">Switch Source 1</button>
+        <button onclick="switchsrc('1')">Switch Source 2</button>
+        <button onclick="switchsrc('2')">Switch Source 3</button>
+        <button onclick="switchsrc('3')">Switch Source 4</button>
+    </div>
+    <div id="flex">
+        <div id="videoContainer"></div>
+        <div id="videoContainer1"></div>
+        <div id="videoContainer2"></div>
+        <div id="videoContainer3"></div>
+    </div>
+    <h1>Master Stream:</h1>
+    <div id="centered">
+        <div id="videoContainerMaster"></div>
+    </div>
 </body>
 <script src="simplewebrtc-with-adapter.bundle.js"></script>
 <script src="index.js"></script>

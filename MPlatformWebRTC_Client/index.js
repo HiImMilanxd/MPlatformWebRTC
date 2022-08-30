@@ -60,8 +60,8 @@ var WebRTCPreview2 = new SimpleWebRTC({
     autoAdjustMic: false,
 });
 
-var WebRTCPreview3 = new SimpleWebRTC({
-    target: "Streamer3",
+var communicationChannal = new SimpleWebRTC({
+    target: "Streamer999",
     url: "http://rtc.medialooks.com:8889",
     iceServers: [
         { urls: "stun:stun.l.google.com:19302" },
@@ -79,27 +79,6 @@ var WebRTCPreview3 = new SimpleWebRTC({
     detectSpeakingEvents: true,
     autoAdjustMic: false,
 });
-
-var WebRTCPreview4 = new SimpleWebRTC({
-    target: "Streamer4",
-    url: "http://rtc.medialooks.com:8889",
-    iceServers: [
-        { urls: "stun:stun.l.google.com:19302" },
-        {
-            username: "test_user",
-            credential: "medialooks",
-            urls: ["turn:67.220.183.67:3478"],
-        },
-    ],
-    localVideoEl: "",
-    remoteVideosEl: "",
-    autoRequestMedia: false,
-    debug: true,
-    mute : true,
-    detectSpeakingEvents: true,
-    autoAdjustMic: false,
-});
-
 
 function connect() {
     
@@ -154,45 +133,9 @@ function connect() {
         video.play();
     });
 
-
-    WebRTCPreview3.joinRoom("Room410");
-    WebRTCPreview3.on("videoAdded", function (video, peer) {
-        console.log("video added", peer);
-        var container4 = document.getElementById("videoContainer2");
-
-        video.setAttribute('loop', '');
-        video.setAttribute('autoplay', 'true');
-        video.setAttribute('controls', '');
-        video.setAttribute("width", "480px");
-
-        videoEl = video;
-        container4.innerHTML = "";
-        container4.appendChild(video);
-        WebRTCPreview3.stopLocalVideo();
-        video.play();
-    });
-
-    
-
-    WebRTCPreview4.joinRoom("Room410");
-    WebRTCPreview4.on("videoAdded", function (video, peer) {
-        console.log("video added", peer);
-        var containerm = document.getElementById("videoContainer3");
-
-        video.setAttribute('loop', '');
-        video.setAttribute('autoplay', 'true');
-        video.setAttribute('controls', '');
-        video.setAttribute("width", "480px");
-
-        videoEl = video;
-        containerm.innerHTML = "";
-        containerm.appendChild(video);
-        WebRTCPreview4.stopLocalVideo();
-        video.play();
-    });
-
+    communicationChannal.joinRoom("Room410");
 }
 
 function switchsrc(srcID){
-    WebRTCMaster.sendDataChannelMessageToAll(srcID);
+    communicationChannal.sendDataChannelMessageToAll(srcID);
 }

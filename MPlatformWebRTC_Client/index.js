@@ -1,6 +1,6 @@
 const videoContainer = document.getElementById("videoContainer");
 
-var WebRTCMaster = new SimpleWebRTC({
+var WebRTCOutput = new SimpleWebRTC({
     target: "Streamer0",
     url: "http://rtc.medialooks.com:8889",
     iceServers: [
@@ -82,10 +82,10 @@ var communicationChannal = new SimpleWebRTC({
 
 function connect() {
     
-    WebRTCMaster.joinRoom("Room410");
-    WebRTCMaster.on("videoAdded", function (video, peer) {
+    WebRTCOutput.joinRoom("Room410");
+    WebRTCOutput.on("videoAdded", function (video, peer) {
         console.log("video added", peer);
-        var container = document.getElementById("videoContainerMaster");
+        var container = document.getElementById("videoContainerOutput");
 
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
@@ -95,14 +95,14 @@ function connect() {
         videoEl = video;
         container.innerHTML = "";
         container.appendChild(video);
-        WebRTCMaster.stopLocalVideo();
+        WebRTCOutput.stopLocalVideo();
         video.play();
     });  
 
     WebRTCPreview1.joinRoom("Room410");
     WebRTCPreview1.on("videoAdded", function (video, peer) {
         console.log("video added", peer);
-        var container2 = document.getElementById("videoContainer");
+        var container = document.getElementById("videoContainer1");
 
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
@@ -110,8 +110,8 @@ function connect() {
         video.setAttribute("width", "480px");
 
         videoEl = video;
-        container2.innerHTML = "";
-        container2.appendChild(video);
+        container.innerHTML = "";
+        container.appendChild(video);
         WebRTCPreview1.stopLocalVideo();
         video.play();
     });
@@ -119,7 +119,7 @@ function connect() {
     WebRTCPreview2.joinRoom("Room410");
     WebRTCPreview2.on("videoAdded", function (video, peer) {
         console.log("video added", peer);
-        var container3 = document.getElementById("videoContainer1");
+        var container = document.getElementById("videoContainer2");
 
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
@@ -127,8 +127,8 @@ function connect() {
         video.setAttribute("width", "480px");
 
         videoEl = video;
-        container3.innerHTML = "";
-        container3.appendChild(video);
+        container.innerHTML = "";
+        container.appendChild(video);
         WebRTCPreview2.stopLocalVideo();
         video.play();
     });

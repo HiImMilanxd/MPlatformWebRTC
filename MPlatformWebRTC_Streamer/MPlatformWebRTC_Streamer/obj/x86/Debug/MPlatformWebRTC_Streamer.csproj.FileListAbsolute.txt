@@ -1,0 +1,10 @@
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\bin\x86\Debug\MPlatformWebRTC_Streamer.exe.config
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\bin\x86\Debug\MPlatformWebRTC_Streamer.exe
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\bin\x86\Debug\MPlatformWebRTC_Streamer.pdb
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\bin\x86\Debug\Interop.MPLATFORMLib.dll
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.csproj.AssemblyReference.cache
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.csproj.SuggestedBindingRedirects.cache
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.csproj.CoreCompileInputs.cache
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.csproj.CopyComplete
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.exe
+C:\Users\milan\source\repos\MPlatformWebRTC_Streamer\MPlatformWebRTC_Streamer\obj\x86\Debug\MPlatformWebRTC_Streamer.pdb
